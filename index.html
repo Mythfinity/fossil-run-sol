@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#111b20">
+  <meta name="description" content="Fight poachers and raptors across three badlands sectors in Fossil Run, a solo arcade brawler.">
+  <title>Fossil Run · Arcade Brawler</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="./arcade.css">
+  <script type="module" src="./game.js"></script>
+</head>
+<body>
+  <main>
+    <header class="masthead">
+      <span class="brand"><i aria-hidden="true"></i> FOSSIL RUN</span>
+      <span class="edition">SOLO ARCADE DEMO</span>
+    </header>
+
+    <section class="cabinet" id="cabinet" aria-label="Fossil Run">
+      <div class="hud">
+        <div class="vitals">
+          <div><label for="health">HEALTH</label><progress id="health" max="100" value="100"></progress></div>
+          <div><label for="charge">WAVE</label><progress id="charge" max="100" value="100"></progress></div>
+        </div>
+        <div class="counter"><span>SECTOR</span><b id="sector">01 / 03</b></div>
+        <div class="counter"><span>SCORE</span><b id="score">000000</b></div>
+        <div class="utility">
+          <button id="mute" type="button" aria-label="Mute sound" aria-pressed="false" title="Toggle sound"><i class="speaker" aria-hidden="true"></i></button>
+          <button id="pause" type="button" aria-label="Pause game" title="Pause game" disabled><i class="pause-icon" aria-hidden="true"></i></button>
+        </div>
+      </div>
+
+      <div class="screen">
+        <canvas id="game" width="480" height="270" aria-label="Badlands highway playfield"></canvas>
+        <div id="boss-panel" class="boss" hidden>
+          <label for="boss-health">ALPHA RAPTOR</label>
+          <progress id="boss-health" max="12" value="12"></progress>
+        </div>
+        <div class="overlay" id="overlay">
+          <div class="slate">
+            <p class="kicker" id="kicker">BADLANDS HIGHWAY</p>
+            <h1 id="title">FOSSIL<br>RUN</h1>
+            <p id="message">Clear three sectors. Reach the extraction car.</p>
+            <button class="start" id="start" type="button">START RUN</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="status">
+        <p id="objective" role="status">Clear the highway and reach extraction.</p>
+        <span aria-hidden="true" class="lane-mark"></span>
+      </div>
+    </section>
+
+    <div class="legend" aria-label="Keyboard controls">
+      <span><kbd>WASD</kbd> <span class="or">or</span> <kbd>↑↓←→</kbd> Move</span>
+      <span><kbd>J</kbd> Strike</span>
+      <span><kbd>K</kbd> Roll</span>
+      <span><kbd>L</kbd> Shockwave</span>
+      <span><kbd>Esc</kbd> Pause</span>
+    </div>
+
+    <div class="touch" aria-label="Touch controls">
+      <div class="direction">
+        <button type="button" data-key="ArrowUp" aria-label="Move up">↑</button>
+        <button type="button" data-key="ArrowLeft" aria-label="Move left">←</button>
+        <button type="button" data-key="ArrowDown" aria-label="Move down">↓</button>
+        <button type="button" data-key="ArrowRight" aria-label="Move right">→</button>
+      </div>
+      <div class="action">
+        <button type="button" data-key="KeyK">Roll</button>
+        <button type="button" data-key="KeyL">Wave</button>
+        <button type="button" data-key="KeyJ">Strike</button>
+      </div>
+    </div>
+  </main>
+</body>
+</html>
